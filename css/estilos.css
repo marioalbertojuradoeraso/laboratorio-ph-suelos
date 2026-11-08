@@ -1,0 +1,409 @@
+/* =========================================
+   ESTILOS PRINCIPALES — Laboratorio Virtual de pH
+   ========================================= */
+* { box-sizing: border-box; }
+html { line-height: 1.5; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(ellipse at top right, #19363d 0%, transparent 52%), #0b1520;
+  color: #e7eef2;
+  min-height: 100vh;
+}
+button, input, select {
+  font: inherit; color: inherit; margin: 0; padding: 0;
+}
+button { appearance: button; background: transparent; cursor: pointer; }
+button:disabled { cursor: default; opacity: 0.5; }
+input, select { background: transparent; }
+a { color: inherit; text-decoration: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Cabecera */
+.cabecera {
+  position: sticky; top: 0; z-index: 50;
+  background: #0b1520ed; backdrop-filter: blur(8px);
+  border-bottom: 1px solid #1e293b;
+}
+.contenedor-cabecera {
+  max-width: 960px; margin: 0 auto; padding: 1rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.marca { display: flex; align-items: center; gap: 0.75rem; }
+.icono-marca { font-size: 1.5rem; }
+.marca h1 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+.subtitulo { display: block; font-size: 0.75rem; color: #94a3b8; }
+.navegacion { display: flex; gap: 0.5rem; }
+.btn-secundario {
+  padding: 0.5rem 1rem; border: 1px solid #334155; border-radius: 0.5rem;
+  color: #cbd5e1; font-size: 0.875rem;
+}
+.btn-secundario:hover { background: #1e293b; color: #ffffff; }
+
+/* Pantallas */
+.principal { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }
+.pantalla { display: none; }
+.pantalla.activa { display: block; }
+.oculta { display: none !important; }
+.contenido-centrado { max-width: 700px; margin: 0 auto; }
+.tarjeta-inicio { max-width: 700px; margin: 0 auto; padding: 2rem; background: #1e293b; border: 1px solid #334155; border-radius: 1rem; }
+
+h1, h2, h3 { margin-top: 0; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+p { margin-bottom: 1rem; line-height: 1.6; color: #cbd5e1; }
+
+/* Botones */
+.btn-principal {
+  width: 100%; max-width: 260px; margin: 1rem auto 0; display: block;
+  padding: 0.75rem 1.5rem; background: #fbbf24; color: #0b1520;
+  font-weight: 700; border-radius: 0.75rem; border: none;
+}
+.btn-principal:hover:not(:disabled) { background: #f59e0b; }
+.btn-principal:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Pantalla inicio */
+.bloque-aprendizaje { margin: 1.5rem 0; }
+.bloque-aprendizaje ul { padding-left: 1.2rem; color: #cbd5e1; }
+.bloque-aprendizaje li { margin-bottom: 0.5rem; }
+.advertencia-inicio {
+  margin: 1.5rem 0; padding: 1rem; background: #fef3c7; color: #92400e;
+  border: 1px solid #f59e0b; border-radius: 0.5rem; font-size: 0.9rem;
+}
+
+/* Escala pH */
+.escala-ph-visual { margin: 1rem 0; }
+.conceptos-ph { display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0; flex-wrap: wrap; }
+.concepto {
+  flex: 1; min-width: 140px; padding: 1rem; border-radius: 0.5rem;
+  border: 1px solid #334155; background: #0f172a; text-align: center;
+}
+.concepto .numero { display: block; font-size: 1.5rem; font-weight: 700; font-family: monospace; margin-bottom: 0.25rem; }
+.concepto .etiqueta { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.concepto.acido .numero { color: #ef4444; }
+.concepto.acido .etiqueta { color: #ef4444; }
+.concepto.neutro .numero { color: #34d399; }
+.concepto.neutro .etiqueta { color: #34d399; }
+.concepto.alcalino .numero { color: #3b82f6; }
+.concepto.alcalino .etiqueta { color: #3b82f6; }
+.nota-logaritmica {
+  margin-top: 1rem; padding: 1rem; background: #1e293b; border: 1px solid #334155;
+  border-radius: 0.5rem; font-size: 0.9rem;
+}
+
+/* Navegación entre pantallas */
+.navegacion-pantalla {
+  display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;
+}
+
+/* Selección de tipo */
+.opciones-tipo { display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0; flex-wrap: wrap; }
+.opcion-tipo {
+  flex: 1; min-width: 220px; max-width: 300px; padding: 1rem;
+  border: 2px solid #334155; border-radius: 0.75rem; background: #0f172a;
+  display: flex; flex-direction: column; gap: 0.5rem; align-items: center;
+}
+.opcion-tipo.selecionada { border-color: #fbbf24; background: #1e293b; }
+.opcion-tipo h3 { margin: 0; font-size: 1.1rem; }
+.opcion-tipo p { margin: 0; font-size: 0.85rem; color: #94a3b8; }
+
+/* Grid de muestras */
+.grid-muestras { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.tarjeta-muestra {
+  border: 1px solid #334155; border-radius: 0.75rem; background: #0f172a;
+  padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem;
+  cursor: pointer; transition: border-color 0.2s;
+}
+.tarjeta-muestra:hover { border-color: #fbbf24; }
+.tarjeta-muestra.seleccionada { border-color: #34d399; background: #1e293b; }
+.tarjeta-muestra h4 { margin: 0; font-size: 1rem; }
+.tarjeta-muestra p { margin: 0; font-size: 0.8rem; color: #94a3b8; }
+.tarjeta-muestra .etiqueta-tipo { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+/* Ficha de muestra */
+#ficha-imagen { max-width: 260px; }
+
+/* Medición */
+.area-medicion { max-width: 600px; margin: 0 auto; }
+.escena-medicion { height: 260px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.control-temperatura {
+  margin: 1.5rem 0; padding: 1rem; background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem;
+}
+.control-temperatura label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.control-temperatura .fila-temp { display: flex; gap: 0.5rem; align-items: center; }
+#input-temperatura { width: 80px; padding: 0.4rem; border: 1px solid #334155; border-radius: 0.35rem; color: #ffffff; background: #0f172a; }
+#valor-temperatura { font-weight: 700; font-family: monospace; color: #fbbf24; }
+.nota-temperatura { margin-top: 0.5rem; font-size: 0.85rem; color: #94a3b8; }
+
+/* Lectura pH */
+.lectura-grande { text-align: center; margin: 2rem 0; }
+.numero-ph { font-size: 3rem; font-weight: 800; font-family: monospace; display: block; }
+.clasificacion { font-size: 1.25rem; font-weight: 700; text-align: center; margin: 1rem 0; }
+.clasificacion.acido { color: #ef4444; }
+.clasificacion.neutro { color: #34d399; }
+.clasificacion.alcalino { color: #3b82f6; }
+
+/* Interpretación */
+.interpretacion-bloque { margin: 1.5rem 0; padding: 1rem; background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; }
+.advertencia-contextual {
+  margin: 1.5rem 0; padding: 1rem; background: #fef3c7; color: #92400e;
+  border: 1px solid #f59e0b; border-radius: 0.5rem; font-size: 0.9rem;
+}
+.preguntas-reflexion { margin: 1.5rem 0; }
+.preguntas-reflexion ul { padding-left: 1.2rem; color: #cbd5e1; }
+.preguntas-reflexion li { margin-bottom: 0.5rem; }
+
+/* Comparador */
+.comparador-columnas { display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
+.columna-comparador {
+  flex: 1; min-width: 260px; padding: 1.25rem; border-radius: 0.75rem;
+  border: 1px solid #334155; background: #0f172a;
+}
+.columna-comparador.suelo { border-left: 4px solid #f59e0b; }
+.columna-comparador.sedimento { border-left: 4px solid #3b82f6; }
+
+/* Bitácora */
+.tabla-bitacora { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.tabla-bitacora th, .tabla-bitacora td {
+  border: 1px solid #334155; padding: 0.6rem; text-align: left; font-size: 0.875rem;
+}
+.tabla-bitacora th { background: #1e293b; color: #fbbf24; }
+.tabla-bitacora tr:nth-child(even) td { background: #0f172a; }
+
+/* Quiz */
+#contenedor-quiz { margin: 1.5rem 0; }
+.pregunta-quiz { margin-bottom: 2rem; padding: 1rem; background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; }
+.pregunta-quiz h4 { margin: 0 0 0.75rem; color: #fbbf24; }
+.opciones-quiz { display: flex; flex-direction: column; gap: 0.5rem; }
+.opcion-quiz {
+  padding: 0.6rem; border: 1px solid #334155; border-radius: 0.5rem; background: #0f172a;
+  text-align: left; cursor: pointer;
+}
+.opcion-quiz:hover { border-color: #fbbf24; }
+.retroalimentacion { margin-top: 0.75rem; padding: 0.75rem; border-radius: 0.5rem; font-size: 0.9rem; }
+.retroalimentacion.correcta { background: #dcfce7; color: #166534; border: 1px solid #34d399; }
+.retroalimentacion.incorrecta { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+
+/* Glosario */
+#contenedor-glosario { margin: 1.5rem 0; }
+.entrada-glosario { margin-bottom: 1rem; padding: 0.75rem; background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; }
+.entrada-glosario .termino { font-weight: 700; color: #fbbf24; display: block; margin-bottom: 0.25rem; }
+
+/* Clases usadas por JS del quiz */
+.correcta-visual { background: #dcfce7 !important; color: #166534 !important; border-color: #34d399 !important; }
+.incorrecta-visual { background: #fee2e2 !important; color: #991b1b !important; border-color: #ef4444 !important; }
+
+/* Marcador de posición en escala pH */
+.marcador-ph { box-shadow: 0 0 0 2px rgba(255,255,255,0.6); }
+
+/* Imagen BFL generada */
+.imagen-bfl {
+  width: 100%; max-width: 480px;
+  display: block; margin: 1rem auto;
+  border: 1px solid #334155; border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Cargando imagen */
+.cargando-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  background: #1e293b;
+  border: 1px dashed #334155;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  min-height: 120px;
+  margin: 1rem auto;
+  max-width: 480px;
+}
+.spinner {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border: 3px solid #334155;
+  border-top-color: #fbbf24;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+
+/* Analogía barrio */
+.analogia-barrio {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-left: 4px solid #fbbf24;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+/* Nota escalera */
+.nota-escalera {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-left: 4px solid #34d399;
+  border-radius: 0.5rem;
+}
+.nota-escalera ul, .nota-barrio-nutrientes ul {
+  padding-left: 1.2rem;
+  color: #cbd5e1;
+}
+.nota-escalera li, .nota-barrio-nutrientes li { margin-bottom: 0.5rem; line-height: 1.6; }
+
+/* Nota barrio nutrientes */
+.nota-barrio-nutrientes {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-left: 4px solid #3b82f6;
+  border-radius: 0.5rem;
+}
+
+/* Ejemplo cotidiano en conceptos pH */
+.ejemplo-cotidiano {
+  font-size: 0.8rem !important;
+  color: #94a3b8 !important;
+  font-style: italic;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Icono en opciones de tipo */
+.icono-opcion {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Ficha de muestra */
+.ficha-info { margin: 1.25rem 0; }
+.ficha-bloque {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+}
+.ficha-bloque strong { display: block; margin-bottom: 0.4rem; color: #fbbf24; }
+.ficha-bloque p { margin: 0; }
+.ficha-etiqueta {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: #334155;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+.temperatura-sugerida {
+  display: flex; gap: 0.5rem; align-items: center;
+}
+.temperatura-sugerida span { font-family: monospace; color: #fbbf24; font-weight: 700; }
+
+/* Temperatura pH en lectura */
+.temp-ph {
+  font-size: 1.5rem !important;
+  color: #94a3b8 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Tabla wrapper responsive */
+.tabla-wrapper { overflow-x: auto; }
+
+/* Resultado resumen */
+.resultado-resumen {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.resultado-resumen p { margin-bottom: 0.5rem; }
+.resultado-resumen p:last-child { margin-bottom: 0; }
+
+/* Resultado final del quiz */
+.resultado-quiz-final {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+}
+.emoji-resultado {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Pantalla procedimiento paso a paso ── */
+.progreso-pasos {
+  display: flex; gap: 0.5rem; justify-content: center;
+  margin-bottom: 1.75rem;
+}
+.paso-dot {
+  width: 2rem; height: 2rem;
+  border-radius: 50%; border: 2px solid #334155;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.875rem; font-weight: 700; color: #64748b;
+  background: #0f172a; transition: all 0.2s;
+}
+.paso-dot.activo  { border-color: #fbbf24; color: #fbbf24; background: #1e293b; }
+.paso-dot.completado { border-color: #34d399; color: #34d399; background: #0a1f17; }
+
+.proc-cuerpo { margin-top: 1rem; }
+.proc-texto {
+  font-size: 1.08rem; line-height: 1.75; color: #e2e8f0; margin-bottom: 1rem;
+}
+.proc-nota {
+  background: #0f1f3f; border-left: 4px solid #3b82f6;
+  padding: 0.75rem 1rem; border-radius: 0.5rem;
+  margin: 0.75rem 0 1rem; color: #bfdbfe;
+  font-size: 0.95rem; line-height: 1.6;
+}
+
+/* Concepto de pH dentro del paso 5 */
+.concepto-ph-procedimiento {
+  background: #131c2f; border: 1px solid #334155;
+  border-radius: 0.75rem; padding: 1.25rem; margin-top: 1.25rem;
+}
+.concepto-ph-procedimiento h3 { color: #f1f5f9; margin-bottom: 0.75rem; }
+.concepto-ph-procedimiento p  { color: #cbd5e1; }
+
+.escala-ph-simple {
+  display: flex; gap: 0.5rem; margin: 1rem 0;
+}
+.escala-bloque {
+  flex: 1; padding: 0.75rem 0.5rem; border-radius: 0.5rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.25rem; text-align: center;
+}
+.escala-bloque.acido    { background: #3f1515; }
+.escala-bloque.neutro   { background: #0a2015; }
+.escala-bloque.alcalino { background: #0f1f3f; }
+.escala-bloque .num { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+.escala-bloque .lab { font-size: 0.85rem; font-weight: 600; color: #cbd5e1; }
+.escala-bloque small { font-size: 0.75rem; color: #94a3b8; }
+
+.ejemplos-cotidianos { font-size: 0.9rem; color: #94a3b8; margin-top: 0.5rem; }
+
+.nota-escalera-mini {
+  background: #0a2015; border-left: 4px solid #34d399;
+  padding: 0.75rem 1rem; border-radius: 0.5rem;
+  font-size: 0.9rem; color: #a7f3d0; line-height: 1.65; margin-top: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .principal { padding: 1rem 0.5rem; }
+  .conceptos-ph { flex-direction: column; }
+  .comparador-columnas { flex-direction: column; }
+  .escala-ph-simple { flex-direction: column; }
+  .tabla-bitacora th, .tabla-bitacora td { font-size: 0.75rem; padding: 0.4rem; }
+}

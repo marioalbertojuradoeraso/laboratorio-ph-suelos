@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio Virtual: pH de Suelos y Sedimentos de Río</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/accesibilidad.css">
+</head>
+<body>
+
+  <!-- ===== CABECERA ===== -->
+  <header class="cabecera">
+    <div class="contenedor-cabecera">
+      <div class="marca">
+        <div class="icono-marca">🧪</div>
+        <div>
+          <h1>Laboratorio Virtual de pH</h1>
+          <span class="subtitulo">Suelos y sedimentos de río</span>
+        </div>
+      </div>
+      <nav class="navegacion">
+        <button id="btn-glosario" class="btn-secundario">Glosario</button>
+        <button id="btn-fuentes" class="btn-secundario">Fuentes</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENEDOR PRINCIPAL ===== -->
+  <main class="principal" id="principal">
+
+    <!-- Pantalla: Inicio -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="tarjeta-inicio">
+        <h2>Laboratorio virtual de pH 🌱</h2>
+        <p>Vas a simular cómo se mide el pH de una muestra de suelo o de sedimento de río: desde la recolección en campo hasta la lectura del resultado en el laboratorio.</p>
+        <p>Avanzamos paso a paso. No hace falta saber nada de química para empezar. Cada concepto se explica cuando llegue el momento.</p>
+        <div class="advertencia-inicio">
+          <strong>Para tener en cuenta:</strong> El pH es como el color de una fruta: te da una pista, pero no te dice todo. Siempre hay que anotar la temperatura cuando se mide el pH.
+        </div>
+        <button id="btn-empezar" class="btn-principal">Comenzar</button>
+      </div>
+    </section>
+
+    <!-- Pantalla: Selección de tipo de muestra -->
+    <section id="pantalla-tipo-muestra" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>¿Qué quieres analizar?</h2>
+        <p>Escoge el tipo de muestra con la que vas a trabajar.</p>
+
+        <div class="opciones-tipo">
+          <button id="btn-tipo-suelo" class="opcion-tipo selecionada" data-tipo="suelo">
+            <span class="icono-opcion">🌱</span>
+            <div>
+              <h3>Suelo</h3>
+              <p>La tierra donde crecen las plantas y los cultivos.</p>
+            </div>
+          </button>
+          <button id="btn-tipo-sedimento" class="opcion-tipo" data-tipo="sedimento">
+            <span class="icono-opcion">🌊</span>
+            <div>
+              <h3>Sedimento de río</h3>
+              <p>El material del fondo de los ríos y quebradas.</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-tipo-anterior" class="btn-secundario">Volver</button>
+          <button id="btn-tipo-siguiente" class="btn-principal" disabled>Seleccionar muestra</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Selección de muestra concreta -->
+    <section id="pantalla-elegir-muestra" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2 id="titulo-elegir-muestra">Elige una muestra</h2>
+        <p>Selecciona la muestra que quieres estudiar. Cada una tiene un contexto diferente.</p>
+        <div id="lista-muestras" class="grid-muestras"></div>
+        <div class="navegacion-pantalla">
+          <button id="btn-muestra-anterior" class="btn-secundario">Volver</button>
+          <button id="btn-muestra-siguiente" class="btn-principal" disabled>Ver ficha de la muestra</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Ficha de la muestra -->
+    <section id="pantalla-ficha-muestra" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2 id="ficha-nombre">Nombre de la muestra</h2>
+
+        <!-- Imagen generada por BFL -->
+        <div id="ficha-imagen-cargando" class="cargando-imagen">
+          <div class="spinner"></div>
+          <span>Generando imagen de la muestra...</span>
+        </div>
+        <img id="ficha-imagen" src="" alt="" class="imagen-bfl" style="display:none;">
+
+        <div class="ficha-info">
+          <div class="ficha-etiqueta" id="ficha-tipo"></div>
+          <div class="ficha-bloque">
+            <strong>¿De dónde viene esta muestra?</strong>
+            <p id="ficha-contexto"></p>
+          </div>
+          <div class="ficha-bloque">
+            <strong>¿Qué se ve?</strong>
+            <p id="ficha-observaciones"></p>
+          </div>
+          <div class="ficha-bloque temperatura-sugerida">
+            <strong>🌡️ Temperatura sugerida de medición:</strong>
+            <span id="ficha-temperatura-sugerida"></span>
+          </div>
+        </div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-ficha-anterior" class="btn-secundario">Volver</button>
+          <button id="btn-ficha-medir" class="btn-principal">Ver procedimiento →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Procedimiento paso a paso -->
+    <section id="pantalla-procedimiento" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <div id="proc-progreso" class="progreso-pasos"></div>
+        <h2 id="proc-titulo"></h2>
+
+        <div id="proc-imagen-cargando" class="cargando-imagen" style="display:none;">
+          <div class="spinner"></div>
+          <span>Cargando imagen...</span>
+        </div>
+        <img id="proc-imagen" src="" alt="" class="imagen-bfl" style="display:none;">
+
+        <div id="proc-cuerpo" class="proc-cuerpo"></div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-proc-anterior" class="btn-secundario">← Volver</button>
+          <button id="btn-proc-siguiente" class="btn-principal">Siguiente paso →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Medición -->
+    <section id="pantalla-medicion" class="pantalla oculta">
+      <div class="area-medicion">
+        <h2>Midiendo el pH</h2>
+        <p>Así se ve el proceso de medición con un pHómetro:</p>
+
+        <div class="escena-medicion" id="escena-medicion">
+          <!-- Se inyecta visual según tipo de muestra -->
+        </div>
+
+        <div class="control-temperatura">
+          <label for="input-temperatura">🌡️ Temperatura de la muestra (°C):</label>
+          <div class="fila-temp">
+            <input type="number" id="input-temperatura" min="10" max="35" value="21" step="1">
+            <span id="valor-temperatura">21 °C</span>
+          </div>
+          <p class="nota-temperatura">⚠️ Siempre anota la temperatura. El mismo suelo puede dar un pH diferente si está más frío o más caliente. Sin temperatura, el número de pH no sirve para comparar.</p>
+        </div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-medicion-anterior" class="btn-secundario">Volver</button>
+          <button id="btn-medir-ph" class="btn-principal">¡Medir pH ahora!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Lectura de pH -->
+    <section id="pantalla-lectura-ph" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Resultado de la medición</h2>
+        <p>El pHómetro mostró este resultado:</p>
+        <div class="lectura-grande">
+          <span id="valor-ph-grande" class="numero-ph">--</span>
+          <span id="valor-temperatura-ph" class="numero-ph temp-ph">-- °C</span>
+        </div>
+        <div class="escala-ph-visual" style="margin-top:1rem;">
+          <div id="indicador-ph" style="height:12px; width:100%; background:linear-gradient(to right,#ef4444,#f59e0b,#34d399,#3b82f6,#1e40af); border-radius:4px; margin-bottom:8px; position:relative;"></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:#94a3b8;">
+            <span>0 — Muy ácido</span><span>7 — Neutro</span><span>14 — Muy alcalino</span>
+          </div>
+        </div>
+        <p id="clasificacion-ph" class="clasificacion"></p>
+        <div class="navegacion-pantalla">
+          <button id="btn-lectura-interpretar" class="btn-principal">¿Qué significa este resultado?</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Interpretación -->
+    <section id="pantalla-interpretacion" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>¿Qué nos dice este resultado?</h2>
+        <div class="resultado-resumen">
+          <p>🔢 <strong>pH medido:</strong> <span id="resumen-ph"></span></p>
+          <p>🌡️ <strong>Temperatura:</strong> <span id="resumen-temperatura"></span></p>
+          <p>📦 <strong>Tipo de muestra:</strong> <span id="resumen-tipo"></span></p>
+        </div>
+
+        <div class="interpretacion-bloque">
+          <h3>¿Qué significa este número?</h3>
+          <p id="texto-significado"></p>
+        </div>
+
+        <div class="interpretacion-bloque">
+          <h3>🌱 Si esto fuera un suelo...</h3>
+          <p id="texto-suelo"></p>
+        </div>
+
+        <div class="interpretacion-bloque">
+          <h3>🌊 Si esto fuera un sedimento de río...</h3>
+          <p id="texto-sedimento"></p>
+        </div>
+
+        <div class="advertencia-contextual" id="advertencia-interpretacion">
+          <strong>🔍 Recuerda:</strong> <span id="texto-advertencia"></span>
+        </div>
+
+        <div class="preguntas-reflexion">
+          <h3>Preguntas para pensar</h3>
+          <ul id="lista-preguntas-reflexion"></ul>
+        </div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-interpretacion-comparar" class="btn-secundario">Comparar suelo vs sedimento</button>
+          <button id="btn-interpretacion-bitacora" class="btn-principal">Registrar en bitácora</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Comparador suelo-sedimento -->
+    <section id="pantalla-comparador" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Suelo vs Sedimento de río</h2>
+        <p>El mismo número de pH puede significar cosas muy diferentes según si lo mediste en suelo o en sedimento de río.</p>
+
+        <div class="comparador-columnas">
+          <div class="columna-comparador suelo">
+            <h3>🌱 Si fuera un suelo</h3>
+            <p id="texto-suelo-comp"></p>
+          </div>
+          <div class="columna-comparador sedimento">
+            <h3>🌊 Si fuera un sedimento</h3>
+            <p id="texto-sedimento-comp"></p>
+          </div>
+        </div>
+
+        <div class="advertencia-contextual">
+          <strong>🔍</strong> <span id="texto-advertencia-comp">El mismo número de pH no se interpreta igual en suelo que en sedimento. Siempre considera de dónde viene la muestra y a qué temperatura se midió.</span>
+        </div>
+
+        <div class="navegacion-pantalla">
+          <button id="btn-comp-volver" class="btn-secundario">Volver al resultado</button>
+          <button id="btn-comp-bitacora" class="btn-principal">Registrar en bitácora</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Bitácora -->
+    <section id="pantalla-bitacora" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Bitácora de mediciones 📋</h2>
+        <p>Aquí quedan guardadas todas las mediciones que hiciste en esta sesión.</p>
+        <div class="tabla-wrapper">
+          <table class="tabla-bitacora">
+            <thead>
+              <tr><th>#</th><th>Tipo</th><th>Muestra</th><th>pH</th><th>Temperatura</th><th>Resultado</th></tr>
+            </thead>
+            <tbody id="cuerpo-bitacora"></tbody>
+          </table>
+        </div>
+        <div class="navegacion-pantalla" style="justify-content:space-between;">
+          <button id="btn-bitacora-limpiar" class="btn-secundario">Limpiar bitácora</button>
+          <button id="btn-bitacora-quiz" class="btn-principal">Ir al quiz final</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Quiz final -->
+    <section id="pantalla-quiz" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Quiz final 🧠</h2>
+        <p>Responde las siguientes preguntas. Puedes equivocarte; lo importante es aprender.</p>
+        <div id="contenedor-quiz"></div>
+        <div id="resultado-quiz" class="oculta"></div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Glosario -->
+    <section id="pantalla-glosario" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Glosario 📖</h2>
+        <p>Palabras clave explicadas con ejemplos de la vida cotidiana.</p>
+        <div id="contenedor-glosario"></div>
+        <div class="navegacion-pantalla">
+          <button id="btn-glosario-cerrar" class="btn-principal">Cerrar glosario</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla: Fuentes -->
+    <section id="pantalla-fuentes" class="pantalla oculta">
+      <div class="contenido-centrado">
+        <h2>Fuentes y trazabilidad</h2>
+        <p>Toda afirmación científica de este laboratorio está trazable a los referentes técnicos:</p>
+        <ul>
+          <li><strong>cb3637en.md</strong> — FAO, <em>Standard operating procedure for soil pH determination</em>, GLOSOLAN-SOP-06, Roma, 2021.</li>
+          <li><strong>637-Published Articles-1910-3-10-20240724.md</strong> — Ikhuoriah &amp; Igheghe (2024), <em>Assessment of Physicochemical Parameters and Metal Contamination in Sediments of the Peri-Urban Amagba-Okoroma River</em>, Open Journal of Agricultural Science.</li>
+        </ul>
+        <p><em>Consulta docs/fuentes_y_trazabilidad.md para el registro detallado de afirmaciones y fuentes.</em></p>
+        <div class="navegacion-pantalla">
+          <button id="btn-fuentes-cerrar" class="btn-principal">Cerrar</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/utilidades.js"></script>
+  <script src="js/estado.js"></script>
+  <script src="js/muestras.js"></script>
+  <script src="js/simulacion.js"></script>
+  <script src="js/temperatura.js"></script>
+  <script src="js/interpretacion.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/imagenes_embebidas.js"></script>
+  <script src="js/imagenes_bfl.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

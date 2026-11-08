@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Relación entre temperatura, suspensión y lectura de pH">
+  <title>Temperatura y pH</title>
+  <desc>Ilustración didáctica: la temperatura se registra junto con el pH. No existe una regla universal de que el pH siempre suba o baje con la temperatura.</desc>
+  <!-- Termómetro -->
+  <rect x="80" y="80" width="30" height="160" fill="#e2e8f0" rx="15"/>
+  <rect x="85" y="80" width="20" height="100" fill="#ef4444" rx="10"/>
+  <circle cx="95" cy="80" r="15" fill="#ef4444"/>
+  <text x="95" y="260" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">22 °C</text>
+  <text x="60" y="160" font-family="Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="end">Termómetro</text>
+  <!-- Suspensión -->
+  <rect x="220" y="80" width="160" height="160" fill="#ffffff" opacity="0.9" stroke="#94a3b8" stroke-width="2" rx="8"/>
+  <path d="M220 210 Q300 190 380 210 L380 240 Q300 220 220 240 Z" fill="#8d6e63" opacity="0.7"/>
+  <text x="300" y="175" font-family="Arial,sans-serif" font-size="11" fill="#3e2723" text-anchor="middle">Suspensión</text>
+  <!-- Lectura pH -->
+  <rect x="440" y="80" width="80" height="80" fill="#0f172a" rx="8"/>
+  <text x="480" y="115" font-family="Arial,sans-serif" font-size="16" fill="#fbbf24" font-weight="bold" text-anchor="middle" font-family="monospace">pH</text>
+  <text x="480" y="140" font-family="Arial,sans-serif" font-size="18" fill="#ffffff" font-weight="bold" text-anchor="middle" font-family="monospace">6,2</text>
+  <text x="480" y="162" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">a 22 °C</text>
+  <!-- Advertencia -->
+  <rect x="80" y="270" width="440" height="40" fill="#fef3c7" opacity="0.95" stroke="#f59e0b" stroke-width="1" rx="6"/>
+  <text x="300" y="293" font-family="Arial,sans-serif" font-size="11" fill="#92400e" text-anchor="middle">No hay regla universal: el pH no siempre sube ni baja con la temperatura.</text>
+</svg>

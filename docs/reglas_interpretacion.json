@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "fecha": "08/11/2026",
+  "reglaCentral": "El pH orienta, pero no diagnostica solo.",
+  "rangoNeutro": [6.5, 7.5],
+  "rangoAcido": [0, 6.5),
+  "rangoAlcalino": (7.5, 14],
+  "advertencias": [
+    "Un valor de pH no está completo si no se conoce la temperatura a la que se midió.",
+    "El pH bajo o alto no prueba contaminación por sí solo.",
+    "El pH cercano a 7 no garantiza buena calidad ambiental ni fertilidad.",
+    "No presentar un rango de pH como diagnóstico universal.",
+    "No recomendar encalado, fertilización o corrección de acidez sin advertir que requieren análisis y condiciones específicas."
+  ],
+  "temperatura": {
+    "rango": [10, 35],
+    "unidad": "°C",
+    "nota": "Registrar siempre pH con su temperatura (ejemplo: pH 5,8 a 22 °C). No existe regla universal de que el pH siempre suba o baje con la temperatura."
+  },
+  "interpretacionPorTipo": {
+    "suelo": {
+      "acido": "Mayor solubilidad de Al, Fe, Mn; posible riesgo de toxicidad por Al o Mn; menor disponibilidad de Ca, Mg, P.",
+      "neutro": "Generalmente aceptable para la mayoría de plantas (rango 6,0-7,5).",
+      "alcalino": "Menor disponibilidad de P, Fe, Mn, Zn, Cu, B; posible presencia de carbonatos."
+    },
+    "sedimento": {
+      "acido": "Puede relacionarse con materia orgánica, condiciones anaeróbicas, drenaje ácido o aportes ácidos. No prueba contaminación.",
+      "neutro": "No garantiza buena calidad ambiental ni ausencia de contaminantes.",
+      "alcalino": "Puede relacionarse con carbonatos, minerales alcalinos o aportes de la cuenca. No prueba buena calidad ambiental."
+    }
+  },
+  "fuentes": [
+    "cb3637en.md (FAO GLOSOLAN-SOP-06, 2021)",
+    "637-Published Articles-1910-3-10-20240724.md (Ikhuoriah & Igheghe, 2024)"
+  ]
+}

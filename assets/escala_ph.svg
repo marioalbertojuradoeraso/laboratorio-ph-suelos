@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Escala de pH con ejemplos visuales">
+  <title>Escala de pH</title>
+  <desc>Escala de pH de 0 a 14 con gradiente de color, punto neutro en 7, y ejemplos visuales de ácido, neutro y alcalino.</desc>
+  <!-- Gradiente de escala -->
+  <linearGradient id="phGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ef4444"/>
+    <stop offset="0.43" stop-color="#f59e0b"/>
+    <stop offset="0.5" stop-color="#34d399"/>
+    <stop offset="0.57" stop-color="#3b82f6"/>
+    <stop offset="1%" stop-color="#1e40af"/>
+  </linearGradient>
+  <rect x="50" y="60" width="500" height="40" fill="url(#phGradient)" rx="8"/>
+  <!-- Números de la escala -->
+  <text x="50" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">0</text>
+  <text x="100" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">3</text>
+  <text x="171" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">5</text>
+  <text x="257" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">7</text>
+  <text x="343" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">9</text>
+  <text x="428" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">11</text>
+  <text x="550" y="125" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">14</text>
+  <!-- Marcador neutro -->
+  <line x1="257" y1="60" x2="257" y2="110" stroke="#ffffff" stroke-width="3"/>
+  <text x="257" y="45" font-family="Arial,sans-serif" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Neutro = 7</text>
+  <!-- Etiquetas -->
+  <text x="50" y="170" font-family="Arial,sans-serif" font-size="13" fill="#ef4444" font-weight="bold">Ácido (&lt; 7)</text>
+  <text x="257" y="170" font-family="Arial,sans-serif" font-size="13" fill="#34d399" font-weight="bold" text-anchor="middle">Neutro (7)</text>
+  <text x="550" y="170" font-family="Arial,sans-serif" font-size="13" fill="#3b82f6" font-weight="bold" text-anchor="end">Alcalino (&gt; 7)</text>
+  <!-- Ejemplos -->
+  <text x="50" y="220" font-family="Arial,sans-serif" font-size="12" fill="#0b1520">Ej: pH 5 es 10× más ácido que pH 6</text>
+  <text x="300" y="220" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="middle">Ej: pH 9 es 10× más alcalino que pH 8</text>
+  <text x="550" y="220" font-family="Arial,sans-serif" font-size="12" fill="#0b1520" text-anchor="end">Escala logarítmica</text>
+</svg>

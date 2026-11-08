@@ -1,0 +1,51 @@
+/* =========================================
+   ACCESIBILIDAD — Laboratorio Virtual de pH
+   ========================================= */
+
+/* Foco visible para navegación por teclado */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+/* Texto alternativo oculto para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Reducir movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Contraste mejorado en modo de alto contraste (si el navegador lo soporta) */
+@media (forced-colors: active) {
+  button { border: 1px solid ButtonText; }
+  .btn-principal { background: ButtonFace; color: ButtonText; }
+}
+
+/* Tamaños de toque mínimos en móviles */
+@media (max-width: 640px) {
+  button, input, select { min-height: 44px; }
+  .opcion-tipo { min-height: 120px; }
+  .tarjeta-muestra { min-height: 140px; }
+}
+
+/* Imágenes: descripción accesible */
+img[alt] { display: block; }
+figure { margin: 0; }
+figcaption { font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem; text-align: center; }
+
+/* Tablas accesibles */
+table { caption-side: top; }
+caption { font-weight: 700; margin-bottom: 0.5rem; color: #fbbf24; }

@@ -1,0 +1,225 @@
+{
+  "version": "1.0",
+  "fecha": "08/11/2026",
+  "fuentes": [
+    "docs/conocimiento_ph_suelos.md (cb3637en.md, FAO 2021)",
+    "docs/conocimiento_ph_sedimentos.md (637-Published Articles-1910-3-10-20240724.md)",
+    "docs/matriz_interpretacion_ph.md"
+  ],
+  "suelos": [
+    {
+      "id": "suelo-01",
+      "nombre": "Huerto orgánico ácido",
+      "tipo": "suelo",
+      "contexto": "Huerto familiar en zona de alta lluvia. Suelo franco-arenoso, baja materia orgánica. El agricultor nota hojas de tomate amarillentas y crecimiento lento.",
+      "ph": 5.2,
+      "temperatura": 21,
+      "textura": "Franco-arenosa",
+      "materiaOrganica": "Baja",
+      "observaciones": "Suelo oscuro, suelto, sin costra blanca en superficie.",
+      "explicaciones": [
+        "Acidez natural del suelo por lixiviación en zona de alta lluvia.",
+        "Posible falta de encalado previo."
+      ],
+      "interpretacion": "pH ácido fuerte. Puede haber mayor solubilidad de aluminio, hierro y manganeso (riesgo de toxicidad para cultivos sensibles como el tomate) y menor disponibilidad de calcio, magnesio y fósforo. No determina fertilidad por sí solo ni diagnostica contaminación.",
+      "preguntas": [
+        "¿Qué otros análisis ayudarían a decidir si el huerto necesita enmienda?",
+        "¿Qué cultivos tolerarían mejor este pH?"
+      ],
+      "limites": "Sin análisis de Al intercambiable, nutrientes y textura completa, no se puede recomendar encalado.",
+      "fuente": "cb3637en.md, Sección 1"
+    },
+    {
+      "id": "suelo-02",
+      "nombre": "Cultivo de maíz cercano a neutro",
+      "tipo": "suelo",
+      "contexto": "Parcela de maíz en zona templada. El productor busca optimizar la fertilización.",
+      "ph": 6.8,
+      "temperatura": 24,
+      "textura": "Franco",
+      "materiaOrganica": "Media",
+      "observaciones": "Suelo franco, buena estructura, residuos de cosecha previa en superficie.",
+      "explicaciones": [
+        "Suelo con pH cercano a neutralidad, generalmente favorable para la mayoría de cultivos."
+      ],
+      "interpretacion": "pH 6,8 está dentro del rango aceptable (6,0-7,5) para la mayoría de plantas. No indica problema de acidez ni alcalinidad marcada. No garantiza fertilidad por sí solo.",
+      "preguntas": [
+        "¿Qué otros nutrientes se deberían medir para saber si el maíz tiene lo que necesita?",
+        "¿El pH por sí solo basta para decidir fertilización?"
+      ],
+      "limites": "pH cercano a 7 no garantiza buena calidad ambiental ni fertilidad.",
+      "fuente": "cb3637en.md, Sección 1"
+    },
+    {
+      "id": "suelo-03",
+      "nombre": "Suelo calcáreo o alcalino",
+      "tipo": "suelo",
+      "contexto": "Zona con suelo calcáreo. Un agricultor observa que algunas plantas muestran clorosis (hojas amarillas con nervios verdes).",
+      "ph": 8.1,
+      "temperatura": 26,
+      "textura": "Arcillo-arenosa",
+      "materiaOrganica": "Baja-media",
+      "observaciones": "Suelo claro, posible presencia de carbonatos libres, costra blanca en superficie en épocas secas.",
+      "explicaciones": [
+        "Suelo alcalino con posible presencia de carbonatos libres."
+      ],
+      "interpretacion": "pH alcalino. Puede reducirse la disponibilidad de fósforo, hierro, manganeso, zinc, cobre y boro. La clorosis podría relacionarse con menor disponibilidad de hierro o zinc. No prueba buena ni mala calidad por sí solo.",
+      "preguntas": [
+        "¿Qué análisis adicionales confirmarían si hay deficiencia de micronutrientes?",
+        "¿Qué cultivos son más tolerantes a suelos alcalinos?"
+      ],
+      "limites": "No recomendar encalado (el suelo ya es alcalino); cualquier corrección requiere análisis específico.",
+      "fuente": "cb3637en.md, Sección 1"
+    },
+    {
+      "id": "suelo-04",
+      "nombre": "Suelo forestal ácido con alta materia orgánica",
+      "tipo": "suelo",
+      "contexto": "Bosque nativo con acumulación de hojarasca en descomposición y suelo oscuro y esponjoso.",
+      "ph": 4.8,
+      "temperatura": 16,
+      "textura": "Franco-arcillosa",
+      "materiaOrganica": "Alta",
+      "observaciones": "Suelo muy oscuro, rico en materia orgánica en descomposición, cubierta de hojarasca.",
+      "explicaciones": [
+        "Acidez natural por acumulación de materia orgánica ácida en descomposición.",
+        "Lixiviación de bases en entorno forestal húmedo."
+      ],
+      "interpretacion": "pH muy ácido. En suelos forestales naturales este pH puede ser esperable. Mayor solubilidad de Al, Fe, Mn posible; menor disponibilidad de Ca, Mg, P. No es necesariamente un problema si la vegetación nativa está adaptada.",
+      "preguntas": [
+        "¿Es este pH normal para un suelo forestal de esta región?",
+        "¿Qué vegetación nativa toleraría este nivel de acidez?"
+      ],
+      "limites": "No diagnosticar problema solo por pH bajo en un ecosistema natural; requiere contexto ecológico.",
+      "fuente": "cb3637en.md, Sección 1; regla de fidelidad"
+    },
+    {
+      "id": "suelo-05",
+      "nombre": "Suelo agrícola afectado por manejo",
+      "tipo": "suelo",
+      "contexto": "Campo de cultivo con histórico de uso de fertilizantes nitrogenados acidificantes y labranza convencional.",
+      "ph": 6.3,
+      "temperatura": 23,
+      "textura": "Franco-limosa",
+      "materiaOrganica": "Media-baja",
+      "observaciones": "Suelo trabajado, residuos de cultivo, posible compactación superficial.",
+      "explicaciones": [
+        "Uso prolongado de fertilizantes nitrogenados puede acidificar el suelo con el tiempo.",
+        "Manejo agrícola influye en el pH y en la materia orgánica."
+      ],
+      "interpretacion": "pH 6,3 ligeramente ácido, dentro del rango aceptable para muchos cultivos. El manejo agrícola puede haber contribuido a este valor. No determina fertilidad ni diagnostica contaminación por sí solo.",
+      "preguntas": [
+        "¿Qué tipo de fertilizantes se han usado y con qué frecuencia?",
+        "¿Se ha medido el pH históricamente para ver tendencias?"
+      ],
+      "limites": "Requiere historial de manejo y análisis de nutrientes para interpretar correctamente.",
+      "fuente": "cb3637en.md, Sección 1; regla de fidelidad"
+    }
+  ],
+  "sedimentos": [
+    {
+      "id": "sedimento-01",
+      "nombre": "Río de montaña, bajo contenido orgánico",
+      "tipo": "sedimento",
+      "contexto": "Sedimento de un arroyo de montaña, agua clara, poca vegetación en ribera.",
+      "ph": 6.4,
+      "temperatura": 12,
+      "textura": "Partículas gruesas, arena y grava",
+      "materiaOrganica": "Baja",
+      "observaciones": "Partículas gruesas, poca materia orgánica visible, agua clara sobre el sedimento.",
+      "explicaciones": [
+        "pH ligeramente ácido, acorde con la geología local y la poca materia orgánica en descomposición."
+      ],
+      "interpretacion": "pH ligeramente ácido. Puede reflejar la geología local y la poca materia orgánica. No es necesariamente igual al pH del agua de encima ni del agua intersticial. No indica contaminación por sí solo.",
+      "preguntas": [
+        "¿Cómo compararías este pH con el del agua del río?",
+        "¿Qué más necesitarías saber para evaluar la salud del sedimento?"
+      ],
+      "limites": "Requieren oxígeno disuelto, conductividad, potencial redox y conocimiento del sitio para interpretar correctamente.",
+      "fuente": "637-Published Articles-1910-3-10-20240724.md, Sección Introduction; regla de fidelidad"
+    },
+    {
+      "id": "sedimento-02",
+      "nombre": "Sedimento con alta materia orgánica",
+      "tipo": "sedimento",
+      "contexto": "Sedimento de un río lento con mucha vegetación en descomposición y acumulación de hojas en el lecho.",
+      "ph": 5.8,
+      "temperatura": 18,
+      "textura": "Sedimento fino, limo y arcilla",
+      "materiaOrganica": "Alta",
+      "observaciones": "Sedimento oscuro, olor a tierra mojada, posible presencia de material vegetal en descomposición.",
+      "explicaciones": [
+        "La materia orgánica en descomposición puede generar condiciones más ácidas y anaeróbicas."
+      ],
+      "interpretacion": "pH bajo-moderado. Puede relacionarse con materia orgánica y condiciones anaeróbicas. No prueba contaminación. Requiere contexto de cuenca y otras variables.",
+      "preguntas": [
+        "¿El pH bajo podría ser natural por la materia orgánica?",
+        "¿Qué indicaría que hay un problema real?"
+      ],
+      "limites": "No diagnosticar contaminación solo por pH bajo.",
+      "fuente": "637-Published Articles-1910-3-10-20240724.md + regla de fidelidad"
+    },
+    {
+      "id": "sedimento-03",
+      "nombre": "Zona con posibles aportes urbanos o agrícolas",
+      "tipo": "sedimento",
+      "contexto": "Sedimento de un río que pasa cerca de una zona urbana y campos de cultivo.",
+      "ph": 7.6,
+      "temperatura": 23,
+      "textura": "Sedimento fino",
+      "materiaOrganica": "Media",
+      "observaciones": "Sedimento fino, posible presencia de residuos, agua con cierto color.",
+      "explicaciones": [
+        "pH ligeramente alcalino. Puede relacionarse con carbonatos de la cuenca, materiales de construcción o aportes agrícolas."
+      ],
+      "interpretacion": "pH ligeramente alcalino. No prueba contaminación ni buena calidad ambiental. En el estudio de referencia (río Amagba-Okoroma), pH 7,55-7,68 se asoció a condiciones ligeramente alcalinas sin contaminación generalizada según índices de contaminación.",
+      "preguntas": [
+        "¿Qué otros parámetros medirías (metales, nutrientes, conductividad) para evaluar si hay impacto antrópico?"
+      ],
+      "limites": "pH alto no garantiza buena calidad ambiental.",
+      "fuente": "637-Published Articles-1910-3-10-20240724.md, Sección Results y Conclusion"
+    },
+    {
+      "id": "sedimento-04",
+      "nombre": "Sedimento con carbonatos",
+      "tipo": "sedimento",
+      "contexto": "Lecho de río en zona con rocas calizas o materiales carbonatados en la cuenca.",
+      "ph": 8.0,
+      "temperatura": 20,
+      "textura": "Sedimento fino con partículas blancas (carbonatos)",
+      "materiaOrganica": "Baja",
+      "observaciones": "Partículas blancas visibles en el sedimento, agua posiblemente dura.",
+      "explicaciones": [
+        "Presencia de carbonatos y minerales alcalinos de la cuenca que elevan el pH del sedimento."
+      ],
+      "interpretacion": "pH alcalino. Puede relacionarse con carbonatos y minerales alcalinos de la cuenca. No prueba buena calidad ambiental por sí solo.",
+      "preguntas": [
+        "¿Qué tipo de rocas hay en la cuenca del río?",
+        "¿El pH del agua de encima es similar al del sedimento?"
+      ],
+      "limites": "No asumir buena calidad ambiental solo por pH alcalino.",
+      "fuente": "637-Published Articles-1910-3-10-20240724.md + regla de fidelidad"
+    },
+    {
+      "id": "sedimento-05",
+      "nombre": "Sedimento ambiguo (requiere más datos)",
+      "tipo": "sedimento",
+      "contexto": "Sedimento de río sin información clara sobre el uso del suelo de la cuenca circundante.",
+      "ph": 7.0,
+      "temperatura": 21,
+      "textura": "No determinada",
+      "materiaOrganica": "No determinada",
+      "observaciones": "Sin observaciones visuales concluyentes.",
+      "explicaciones": [
+        "pH cercano a neutralidad; sin contexto adicional no se puede asignar causa específica."
+      ],
+      "interpretacion": "pH 7,0 neutro. No se puede concluir nada definitivo sin saber el contexto de la cuenca, ubicación, textura, materia orgánica y posibles aportes. pH cercano a 7 no significa 'perfecto' ni 'no contaminado'.",
+      "preguntas": [
+        "¿Qué información falta para interpretar este resultado?",
+        "¿Por qué el pH solo no basta para un diagnóstico?"
+      ],
+      "limites": "Alto grado de incertidumbre; no emitir diagnóstico.",
+      "fuente": "regla de fidelidad del proyecto"
+    }
+  ]
+}

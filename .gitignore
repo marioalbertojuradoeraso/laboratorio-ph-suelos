@@ -1,0 +1,12 @@
+# Clave de API — nunca subir al repositorio
+api_bfl.txt
+
+# Copias físicas de las imágenes BFL (ya están embebidas en js/imagenes_embebidas.js)
+assets/bfl/
+
+# PDFs originales de los referentes técnicos (versiones MD están en "Referentes técnicos en MD")
+Referentes técnicos/
+
+# Python
+__pycache__/
+*.pyc
